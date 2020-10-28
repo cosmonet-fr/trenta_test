@@ -1,3 +1,18 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@300;400;700&family=Roboto:wght@400;700;900&display=swap');
+$color_inactive: #b6b6b6;
+* {
+  font-family: 'Roboto', sans-serif;
+}
+
+h1 {
+  font-family: 'Roboto Condensed', sans-serif;
+  font-weight: bold;
+}
+.ref {
+  color: $color_inactive;
+  font-size: .7em;
+}
+
 .btn_menu {
   img {
     width: 2.5em;
@@ -31,8 +46,24 @@
   height: .3em;
   border-radius: .1em;
   margin: 1em 0 1em .2em;
-  background-color: #d6d6d6;
+  background-color: $color_inactive;
 }
 .active {
   background-color: black;
+}
+
+.price {
+  margin-left: .2em;
+}
+
+.reduction_box {
+  margin: 0 1em;
+  padding: 0 5px;
+  background-color: black;
+  width: 50px;
+  height: 20px;
+  color: white;
+}
+.reduction {
+  text-align: center;
 }
