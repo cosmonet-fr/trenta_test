@@ -1,5 +1,7 @@
 @charset "UTF-8";
-
+.slick-next {
+  color: red;
+}
 // Default Variables
 
 // Slick icon entity codes outputs the following
@@ -10,7 +12,7 @@
 $slick-font-path: "./fonts/" !default;
 $slick-font-family: "slick" !default;
 $slick-loader-path: "./" !default;
-$slick-arrow-color: white !default;
+$slick-arrow-color: black !default;
 $slick-dot-color: black !default;
 $slick-dot-color-active: $slick-dot-color !default;
 $slick-prev-character: "\2190" !default;

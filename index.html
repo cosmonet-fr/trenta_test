@@ -4,67 +4,82 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <link rel="stylesheet" href="css/master.min.css">
-    <link rel="stylesheet" type="text/css" href="slick/slick/slick.css"/>
-    <link rel="stylesheet" type="text/css" href="slick/slick/slick-theme.css"/>
+    <link rel="stylesheet" href="slick/slick/slick.css"/>
+    <link rel="stylesheet" href="slick/slick/slick-theme.css"/>
     <link rel="stylesheet" href="css/sliders.css">
+    <link rel="stylesheet" href="css/master.min.css">
     <title>Fenom</title>
   </head>
   <body>
-    <header class="container-fluid" >
-      <div class="header_mobile row">
-        <div id="btn_menu" class="btn_menu col">
-          <img src="assets/svg/interface-burger.svg" alt="Ouvrire le menu">
-        </div>
+    <div id="app">
+      
+      <header class="container-fluid" >
+        <div class="header_mobile row">
+          <div id="btn_menu" class="btn_menu col">
+            <img src="assets/svg/interface-burger.svg" alt="Ouvrire le menu">
+          </div>
 
-        <div class="logo col">
-          <img src="assets/svg/logo-header.svg" alt="">
-        </div>
+          <div class="logo col">
+            <img src="assets/svg/logo-header.svg" alt="">
+          </div>
 
-        <div class="cart_box col ">
-          <div class="">
-            <img src="assets/svg/interface-search.svg" alt="">
+          <div class="cart_box col ">
+            <div class="">
+              <img @click="modal = !modal" src="assets/svg/interface-search.svg" alt="">
+              <img src="assets/svg/interface-shopping-cart.svg" alt="">
+            </div>
+          </div>
+        </div>
+        <div class="header_desktop">
+          <div class="logo">
+            <img src="assets/svg/logo-header.svg" alt="">
+          </div>
+
+          <nav class="menu_desktop">
+            <ul>
+              <li><a href="#">Nouveautés</a></li>
+              <li><a href="#">Homme</a></li>
+              <li><a href="#">Femme</a></li>
+              <li><a href="#">Lifestore</a></li>
+              <li><a href="#">Skate</a></li>
+              <li><a href="#">Marques</a></li>
+              <li><a href="#">Outlet</a></li>
+            </ul>
+            <img @click="modal = !modal" src="assets/svg/interface-search.svg" alt="">
+          </nav>
+
+          <div class="cart_box">
+            <img src="assets/svg/interface-user.svg" alt="">
             <img src="assets/svg/interface-shopping-cart.svg" alt="">
+            <p>PANIER ( {{ cart }} )</p>
+          </div>
+        </div>
+      </header>
+      <div v-if="modal" class="col-md-4 offset-md-4 mt-5 border pt-3">
+        <div class="input-group mb-3">
+          <input type="text" class="form-control" placeholder="Rechercher un modèle" aria-label="Recipient's username">
+          <div class="input-group-append">
+            <span class="input-group-text"><i class="fa fa-search"></i></span>
           </div>
         </div>
       </div>
 
-      <div class="header_desktop">
-        <div class="logo">
-          <img src="assets/svg/logo-header.svg" alt="">
-        </div>
-
-        <nav class="menu_desktop">
-          <ul>
-            <li><a href="#">Nouveautés</a></li>
-            <li><a href="#">Homme</a></li>
-            <li><a href="#">Femme</a></li>
-            <li><a href="#">Lifestore</a></li>
-            <li><a href="#">Skate</a></li>
-            <li><a href="#">Marques</a></li>
-            <li><a href="#">Outlet</a></li>
-          </ul>
-          <img src="assets/svg/interface-search.svg" alt="">
-        </nav>
-
-        <div class="cart_box">
-          <img src="assets/svg/interface-user.svg" alt="">
-          <img src="assets/svg/interface-shopping-cart.svg" alt="">
-          <p>PANIER (XX)</p>
-        </div>
-      </div>
-    </header>
-
-    <section class="this_article container-fluid">
+      <section class="this_article container-fluid">
         <article class="pics_of_this_article">
-          <img src="assets/img/img-chaussure-1.jpg" alt="Nike SB Dunk High Pro">
+          <img v-if="indPics === 0" src="assets/img/img-chaussure-1.jpg" alt="Nike SB Dunk High Pro">
+          <img v-if="indPics === 1" src="assets/img/img-chaussure-2.jpg" alt="Nike SB Dunk High Pro">
+          <img v-if="indPics === 2" src="assets/img/img-chaussure-3.jpg" alt="Nike SB Dunk High Pro">
+          <img v-if="indPics === 3" src="assets/img/img-chaussure-4.jpg" alt="Nike SB Dunk High Pro">
+          <img v-if="indPics === 4" src="assets/img/img-chaussure-5.jpg" alt="Nike SB Dunk High Pro">
+          <img v-if="indPics === 5" src="assets/img/img-chaussure-6.jpg" alt="Nike SB Dunk High Pro">
           <div class="footer_pics">
             <div class="nav_pics">
-              <div class="nav_pics_btn active"></div>
-              <div class="nav_pics_btn"></div>
-              <div class="nav_pics_btn"></div>
-              <div class="nav_pics_btn"></div>
-              <div class="nav_pics_btn"></div>
+              <div @click="indPics = 0" v-if="indPics !== 0" class="nav_pics_btn"></div> <div v-if="indPics === 0" class="nav_pics_btn active"></div>
+              <div @click="indPics = 1" v-if="indPics !== 1" class="nav_pics_btn"></div> <div v-if="indPics === 1" class="nav_pics_btn active"></div>
+              <div @click="indPics = 2" v-if="indPics !== 2" class="nav_pics_btn"></div> <div v-if="indPics === 2" class="nav_pics_btn active"></div>
+              <div @click="indPics = 3" v-if="indPics !== 3" class="nav_pics_btn"></div> <div v-if="indPics === 3" class="nav_pics_btn active"></div>
+              <div @click="indPics = 4" v-if="indPics !== 4" class="nav_pics_btn"></div> <div v-if="indPics === 4" class="nav_pics_btn active"></div>
+              <div @click="indPics = 5" v-if="indPics !== 5" class="nav_pics_btn"></div> <div v-if="indPics === 5" class="nav_pics_btn active"></div>
             </div>
           </div>
 
@@ -113,17 +128,18 @@
 
             <div class="shoe_size_body">
               <ul>
-                <li class="li-active">40</li>
-                <li>41</li>
-                <li>42</li>
-                <li>42.5</li>
-                <li>43</li>
-                <li>44</li>
+                <!--<li class="li-active">40</li>-->
+                <li v-if="size[0].state === false" @click="soheSize(0)">40</li> <li v-if="size[0].state === true" @click="soheSize(0)" class="li-active">40</li>
+                <li v-if="size[1].state === false" @click="soheSize(1)">41</li> <li v-if="size[1].state === true" @click="soheSize(1)" class="li-active">41</li>
+                <li v-if="size[2].state === false" @click="soheSize(2)">42</li> <li v-if="size[2].state === true" @click="soheSize(2)" class="li-active">42</li>
+                <li  v-if="size[3].state === false"@click="soheSize(3)">42.5</li> <li v-if="size[3].state === true" @click="soheSize(3)" class="li-active">42.5</li>
+                <li v-if="size[4].state === false" @click="soheSize(4)">43</li> <li v-if="size[4].state === true" @click="soheSize(4)" class="li-active">43</li>
+                <li v-if="size[5].state === false" @click="soheSize(5)">44</li> <li v-if="size[5].state === true" @click="soheSize(5)" class="li-active">44</li>
               </ul>
             </div>
 
             <div class="shoe_size_footer">
-              <button class="btn btn-dark btn-block btn_fenom" type="button" name="button">Ajouter au panier</button>
+              <button @click="cart = cart + 1" class="btn btn-dark btn-block btn_fenom" type="button" name="button">Ajouter au panier</button>
             </div>
             <p class="collection">Cette Nike SB Dunk High Pro Black/ University Gold appartient à la collection</p>
             <div class="delivery">
@@ -144,121 +160,134 @@
             </div>
           </div>
         </aside>
-    </section>
+      </section>
 
-    <section class="other_articles container-fluid">
-      <h2>Vous aimerez aussi</h2>
-      <div class="wrapper">
-        <div class="carousel">
-          <div><img src="assets/img/img-chaussure-1.jpg/"></div>
-          <div><img src="assets/img/img-chaussure-2.jpg/"></div>
-          <div><img src="assets/img/img-chaussure-3.jpg/"></div>
-          <div><img src="assets/img/img-chaussure-4.jpg/"></div>
-          <div><img src="assets/img/img-chaussure-5.jpg/"></div>
-          <div><img src="assets/img/img-chaussure-6.jpg/"></div>
+      <section class="other_articles container-fluid">
+        <h2>Vous aimerez aussi</h2>
+        <div class="wrapper">
+          <div class="carousel">
+            <div><img src="assets/img/img-chaussure-1.jpg/"></div>
+            <div><img src="assets/img/img-chaussure-2.jpg/"></div>
+            <div><img src="assets/img/img-chaussure-3.jpg/"></div>
+            <div><img src="assets/img/img-chaussure-4.jpg/"></div>
+            <div><img src="assets/img/img-chaussure-5.jpg/"></div>
+            <div><img src="assets/img/img-chaussure-6.jpg/"></div>
 
-        </div>
-      </div>
-
-      <h2>Derniers articles consultés</h2>
-
-    </section>
-
-    <section>
-      <div class="services">
-        <div class="service">
-          <img src="assets/svg/insurance-2.svg" alt="">
-          <p>Livraison gratuite</p>
-          <p class="ref">Livraison gratuite en France métropolitaine</p>
+          </div>
         </div>
 
-        <div class="service">
-          <img src="assets/svg/insurance-1.svg" alt="">
-          <p>Paiment sécurisé</p>
-          <p class="ref">Paiment 100% sécurisé Visa, Mastercard, Paypal</p>
+        <h2>Derniers articles consultés</h2>
+        <div class="wrapper">
+          <div class="carousel">
+            <div><img src="assets/img/img-chaussure-1.jpg/"></div>
+            <div><img src="assets/img/img-chaussure-2.jpg/"></div>
+            <div><img src="assets/img/img-chaussure-3.jpg/"></div>
+            <div><img src="assets/img/img-chaussure-4.jpg/"></div>
+            <div><img src="assets/img/img-chaussure-5.jpg/"></div>
+            <div><img src="assets/img/img-chaussure-6.jpg/"></div>
+
+          </div>
         </div>
 
-        <div class="service">
-          <img src="assets/svg/insurance-4.svg" alt="">
-          <p>Service client</p>
-          <p class="ref">Une question ?<br>
-          Besoin d'un conseil ?<br>
-        01 84 60 90 20 ou par mail</p>
-        </div>
+      </section>
 
-        <div class="service">
-          <img src="assets/svg/insurance-3.svg" alt="">
-          <p>Retour</p>
-          <p class="ref">Vous bénéficiez de 15 jours pour changer d'avis</p>
-        </div>
-
-      </div>
-    </section>
-
-    <footer class="container-fluid">
-      <div class="header_footer">
-        <div class="menu_footer">
-          <ul class="list-group list-group-flush">
-            <li class="list-group-item">SHOP</li>
-            <li class="list-group-item">SAV</li>
-            <li class="list-group-item">À PROPOS</li>
-          </ul>
-
-        </div>
-
-        <div class="menu_footer_desktop">
-          <ul>
-            <p>Shop</p>
-            <li class=""><a href="#">Homme</a></li>
-            <li class=""><a href="#">Femme</a></li>
-            <li class=""><a href="#">Lifestore</a></li>
-            <li class=""><a href="#">Marques</a></li>
-          </ul>
-
-          <ul>
-            <p>SAV</p>
-            <li class=""><a href="#">Livraison</a></li>
-            <li class=""><a href="#">Retour</a></li>
-            <li class=""><a href="#">Paiment</a></li>
-            <li class=""><a href="#">FAQ</a></li>
-            <li class=""><a href="#">CGV</a></li>
-            <li class=""><a href="#">Infos perso</a></li>
-            <li class=""><a href="#">Mentions</a></li>
-          </ul>
-
-          <ul>
-            <p>Shop</p>
-            <li class=""><a href="#">Homme</a></li>
-            <li class=""><a href="#">Femme</a></li>
-            <li class=""><a href="#">Lifestore</a></li>
-            <li class=""><a href="#">Marques</a></li>
-          </ul>
-
-        </div>
-
-        <div class="follow">
-          <h3>Suivez-nous pour ne rien manquer !</h3>
-          <p>Recevez toutes les infos sur les prochaines sorties, offres et actualités de la boutique Fenom</p>
-          <form class="" action="index.html" method="post">
-            <input type="text" name="" value="" placeholder="Inscrivez votre email">
-            <button class="btn btn-dark btn_fenom" type="submit" form="form1" value="Submit">S'INSCRIRE</button>
-          </form>
-          <div class="social_networks">
-            <img src="assets/svg/network-facebook.svg" alt="Facebook">
-            <img src="assets/svg/network-instagram.svg" alt="Instagram">
-            <img src="assets/svg/network-twitter.svg" alt="Twitter">
+      <section>
+        <div class="services">
+          <div class="service">
+            <img src="assets/svg/insurance-2.svg" alt="">
+            <p>Livraison gratuite</p>
+            <p class="ref">Livraison gratuite en France métropolitaine</p>
           </div>
 
-        </div>
+          <div class="service">
+            <img src="assets/svg/insurance-1.svg" alt="">
+            <p>Paiment sécurisé</p>
+            <p class="ref">Paiment 100% sécurisé Visa, Mastercard, Paypal</p>
+          </div>
 
-        </div>
-      <div class="logo_footer">
-        <img src="assets/svg/fenom-footer.svg" alt="Logo Fenom">
-      </div>
-      <div class="parteners">
-        <img src="assets/svg/paiement-livraison.svg" alt="">
-      </div>
-    </footer>
+          <div class="service">
+            <img src="assets/svg/insurance-4.svg" alt="">
+            <p>Service client</p>
+            <p class="ref">Une question ?<br>
+              Besoin d'un conseil ?<br>
+              01 84 60 90 20 ou par mail</p>
+            </div>
+
+            <div class="service">
+              <img src="assets/svg/insurance-3.svg" alt="">
+              <p>Retour</p>
+              <p class="ref">Vous bénéficiez de 15 jours pour changer d'avis</p>
+            </div>
+
+          </div>
+        </section>
+
+        <footer class="container-fluid">
+          <div class="header_footer">
+            <div class="menu_footer">
+              <ul class="list-group list-group-flush">
+                <li class="list-group-item">SHOP</li>
+                <li class="list-group-item">SAV</li>
+                <li class="list-group-item">À PROPOS</li>
+              </ul>
+
+            </div>
+
+            <div class="menu_footer_desktop">
+              <ul>
+                <p>Shop</p>
+                <li class=""><a href="#">Homme</a></li>
+                <li class=""><a href="#">Femme</a></li>
+                <li class=""><a href="#">Lifestore</a></li>
+                <li class=""><a href="#">Marques</a></li>
+              </ul>
+
+              <ul>
+                <p>SAV</p>
+                <li class=""><a href="#">Livraison</a></li>
+                <li class=""><a href="#">Retour</a></li>
+                <li class=""><a href="#">Paiment</a></li>
+                <li class=""><a href="#">FAQ</a></li>
+                <li class=""><a href="#">CGV</a></li>
+                <li class=""><a href="#">Infos perso</a></li>
+                <li class=""><a href="#">Mentions</a></li>
+              </ul>
+
+              <ul>
+                <p>Shop</p>
+                <li class=""><a href="#">Homme</a></li>
+                <li class=""><a href="#">Femme</a></li>
+                <li class=""><a href="#">Lifestore</a></li>
+                <li class=""><a href="#">Marques</a></li>
+              </ul>
+
+            </div>
+
+            <div class="follow">
+              <h3>Suivez-nous pour ne rien manquer !</h3>
+              <p>Recevez toutes les infos sur les prochaines sorties, offres et actualités de la boutique Fenom</p>
+              <form class="" action="index.html" method="post">
+                <input type="text" name="" value="" placeholder="Inscrivez votre email">
+                <button class="btn btn-dark btn_fenom" type="submit" form="form1" value="Submit">S'INSCRIRE</button>
+              </form>
+              <div class="social_networks">
+                <img src="assets/svg/network-facebook.svg" alt="Facebook">
+                <img src="assets/svg/network-instagram.svg" alt="Instagram">
+                <img src="assets/svg/network-twitter.svg" alt="Twitter">
+              </div>
+
+            </div>
+
+          </div>
+          <div class="logo_footer">
+            <img src="assets/svg/fenom-footer.svg" alt="Logo Fenom">
+          </div>
+          <div class="parteners">
+            <img src="assets/svg/paiement-livraison.svg" alt="">
+          </div>
+        </footer>
+
+    </div>
 
 
 
@@ -277,5 +306,39 @@
       });
     });
     </script>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script>
+        const app = new Vue({
+            el: "#app",
+            data: {
+                cart: 0,
+                indPics: 0,
+                modal: false,
+                size: [
+                  {state: true},
+                  {state: false},
+                  {state: false},
+                  {state: false},
+                  {state: false},
+                  {state: false}
+                ]
+            },
+            methods: {
+              soheSize: function (size) {
+                console.log('ok');
+                this.size[0].state = false;
+                this.size[1].state = false;
+                this.size[2].state = false;
+                this.size[3].state = false;
+                this.size[4].state = false;
+                this.size[5].state = false;
+                this.size[size].state = true;
+
+              }
+            }
+
+        });
+    </script>
+
   </body>
 </html>

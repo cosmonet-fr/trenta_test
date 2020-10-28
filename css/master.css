@@ -113,6 +113,7 @@ h2 {
 }
 
 .nav_pics_btn {
+  cursor: pointer;
   width: 1.4em;
   height: .3em;
   border-radius: .1em;
@@ -321,8 +322,10 @@ footer, .menu_footer li {
   list-style: none;
 }
 
-.follow {
-  width: 33%;
+@media (min-width: 799px) {
+  .follow {
+    width: 33%;
+  }
 }
 
 .social_networks, .logo_footer, .parteners {
@@ -332,6 +335,26 @@ footer, .menu_footer li {
 
 .parteners img {
   max-height: 2em;
+}
+
+.overlay {
+  z-index: 2;
+  background-color: rgba(0, 0, 0, 0.5);
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+.modal_block {
+  z-index: 5;
+  background-color: blue;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
 }
 
 /*# sourceMappingURL=master.css.map */
