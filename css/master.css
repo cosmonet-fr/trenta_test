@@ -3,9 +3,13 @@
   font-family: 'Roboto', sans-serif;
 }
 
-h1 {
+h1, h2, h3 {
   font-family: 'Roboto Condensed', sans-serif;
   font-weight: bold;
+}
+
+h2 {
+  text-transform: uppercase;
 }
 
 .ref {
@@ -95,7 +99,24 @@ h1 {
   color: black;
 }
 
-.shoe_size_footer button {
+.shoe_size_body ul {
+  margin-left: -2em;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  list-style: none;
+}
+
+.shoe_size_body li {
+  padding: .7em 1em;
+  cursor: pointer;
+}
+
+.shoe_size_body li.li-active {
+  border: solid 1px;
+}
+
+.btn_fenom {
   text-transform: uppercase;
   border-radius: 0;
   background-color: black;
@@ -107,20 +128,63 @@ h1 {
   font-size: 1em;
 }
 
-.delivery img {
-  width: 50px;
-}
-
 .delivery p {
   margin: 1.5em 0;
   font-size: .7em;
   font-weight: bold;
 }
 
-.delivery_element {
+.delivery p span {
+  text-transform: uppercase;
+}
+
+.delivery_element img, .service img, .social_networks img {
+  width: 50px;
+}
+
+.delivery_element, .shoe_brand {
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
+}
+
+.shoe_brand, .logo_footer {
+  margin: 2em 0;
+}
+
+.shoe_brand img, .logo_footer img {
+  width: 100px;
+}
+
+footer {
+  padding: 2em 0;
+}
+
+footer input {
+  border-radius: 2px;
+  padding: .4em;
+  margin-right: -4px;
+  border: solid 1px #b6b6b6;
+}
+
+footer, .menu_footer li {
+  background-color: #f5f5f5;
+}
+
+.services {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.service {
+  text-align: center;
+  width: 45%;
+  height: 45%;
+}
+
+.social_networks, .logo_footer, .parteners {
+  text-align: center;
+  margin: 2em 0;
 }
 
 /*# sourceMappingURL=master.css.map */
