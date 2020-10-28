@@ -67,4 +67,60 @@ h1 {
   text-align: center;
 }
 
+.shoe_size_header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.shoe_size_text {
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.country ul {
+  display: flex;
+  flex-direction: row;
+  list-style: none;
+}
+
+.country li {
+  margin: 0 .2em;
+  color: #b6b6b6;
+  cursor: pointer;
+}
+
+.country li.li-active {
+  text-decoration: underline;
+  color: black;
+}
+
+.shoe_size_footer button {
+  text-transform: uppercase;
+  border-radius: 0;
+  background-color: black;
+}
+
+.collection {
+  margin: 1em 0;
+  color: #b6b6b6;
+  font-size: 1em;
+}
+
+.delivery img {
+  width: 50px;
+}
+
+.delivery p {
+  margin: 1.5em 0;
+  font-size: .7em;
+  font-weight: bold;
+}
+
+.delivery_element {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+}
+
 /*# sourceMappingURL=master.css.map */
