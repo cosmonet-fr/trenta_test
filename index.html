@@ -8,11 +8,12 @@
     <title>Fenom</title>
   </head>
   <body>
-    <header class="container" >
-      <div class="row">
+    <header class="container-fluid" >
+      <div class="header_mobile row">
         <div id="btn_menu" class="btn_menu col">
           <img src="assets/svg/interface-burger.svg" alt="Ouvrire le menu">
         </div>
+
         <div class="logo col">
           <img src="assets/svg/logo-header.svg" alt="">
         </div>
@@ -21,15 +22,37 @@
           <div class="">
             <img src="assets/svg/interface-search.svg" alt="">
             <img src="assets/svg/interface-shopping-cart.svg" alt="">
-
           </div>
+        </div>
+      </div>
 
+      <div class="header_desktop">
+        <div class="logo">
+          <img src="assets/svg/logo-header.svg" alt="">
         </div>
 
+        <nav class="menu_desktop">
+          <ul>
+            <li><a href="#">Nouveautés</a></li>
+            <li><a href="#">Homme</a></li>
+            <li><a href="#">Femme</a></li>
+            <li><a href="#">Lifestore</a></li>
+            <li><a href="#">Skate</a></li>
+            <li><a href="#">Marques</a></li>
+            <li><a href="#">Outlet</a></li>
+          </ul>
+          <img src="assets/svg/interface-search.svg" alt="">
+        </nav>
+
+        <div class="cart_box">
+          <img src="assets/svg/interface-user.svg" alt="">
+          <img src="assets/svg/interface-shopping-cart.svg" alt="">
+          <p>PANIER (XX)</p>
+        </div>
       </div>
     </header>
 
-    <section class="this_article container">
+    <section class="this_article container-fluid">
         <article class="pics_of_this_article">
           <img src="assets/img/img-chaussure-1.jpg" alt="Nike SB Dunk High Pro">
           <div class="footer_pics">
@@ -43,6 +66,19 @@
           </div>
 
         </article>
+
+        <article class="pics_of_this_article_desk">
+          <img src="assets/img/img-chaussure-1.jpg" alt="Nike SB Dunk High Pro">
+          <img src="assets/img/img-chaussure-2.jpg" alt="Nike SB Dunk High Pro">
+          <img src="assets/img/img-chaussure-3.jpg" alt="Nike SB Dunk High Pro">
+          <img src="assets/img/img-chaussure-4.jpg" alt="Nike SB Dunk High Pro">
+          <img src="assets/img/img-chaussure-5.jpg" alt="Nike SB Dunk High Pro">
+          <img src="assets/img/img-chaussure-6.jpg" alt="Nike SB Dunk High Pro">
+
+
+        </article>
+
+
         <aside class="description">
           <h1>Nike SB Dunk High Pro - Truck-it</h1>
           <p class="ref"> Reference : BQ6826-003 </p>
@@ -107,7 +143,7 @@
         </aside>
     </section>
 
-    <section class="other_articles container">
+    <section class="other_articles container-fluid">
       <h2>Vous aimerez aussi</h2>
 
       <h2>Derniers articles consultés</h2>
@@ -145,27 +181,63 @@
       </div>
     </section>
 
-    <footer class="container">
-      <div class="menu_footer">
-        <ul class="list-group list-group-flush">
-          <li class="list-group-item">SHOP</li>
-          <li class="list-group-item">SAV</li>
-          <li class="list-group-item">À PROPOS</li>
-        </ul>
+    <footer class="container-fluid">
+      <div class="header_footer">
+        <div class="menu_footer">
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item">SHOP</li>
+            <li class="list-group-item">SAV</li>
+            <li class="list-group-item">À PROPOS</li>
+          </ul>
 
-      </div>
+        </div>
 
-      <h3>Suivez-nous pour ne rien manquer !</h3>
-      <p>Recevez toutes les infos sur les prochaines sorties, offres et actualités de la boutique Fenom</p>
-      <form class="" action="index.html" method="post">
-        <input type="text" name="" value="">
-        <button class="btn btn-dark btn_fenom" type="submit" form="form1" value="Submit">S'INSCRIRE</button>
-      </form>
-      <div class="social_networks">
-        <img src="assets/svg/network-facebook.svg" alt="Facebook">
-        <img src="assets/svg/network-instagram.svg" alt="Instagram">
-        <img src="assets/svg/network-twitter.svg" alt="Twitter">
-      </div>
+        <div class="menu_footer_desktop">
+          <ul>
+            <p>Shop</p>
+            <li class=""><a href="#">Homme</a></li>
+            <li class=""><a href="#">Femme</a></li>
+            <li class=""><a href="#">Lifestore</a></li>
+            <li class=""><a href="#">Marques</a></li>
+          </ul>
+
+          <ul>
+            <p>SAV</p>
+            <li class=""><a href="#">Livraison</a></li>
+            <li class=""><a href="#">Retour</a></li>
+            <li class=""><a href="#">Paiment</a></li>
+            <li class=""><a href="#">FAQ</a></li>
+            <li class=""><a href="#">CGV</a></li>
+            <li class=""><a href="#">Infos perso</a></li>
+            <li class=""><a href="#">Mentions</a></li>
+          </ul>
+
+          <ul>
+            <p>Shop</p>
+            <li class=""><a href="#">Homme</a></li>
+            <li class=""><a href="#">Femme</a></li>
+            <li class=""><a href="#">Lifestore</a></li>
+            <li class=""><a href="#">Marques</a></li>
+          </ul>
+
+        </div>
+
+        <div class="follow">
+          <h3>Suivez-nous pour ne rien manquer !</h3>
+          <p>Recevez toutes les infos sur les prochaines sorties, offres et actualités de la boutique Fenom</p>
+          <form class="" action="index.html" method="post">
+            <input type="text" name="" value="" placeholder="Inscrivez votre email">
+            <button class="btn btn-dark btn_fenom" type="submit" form="form1" value="Submit">S'INSCRIRE</button>
+          </form>
+          <div class="social_networks">
+            <img src="assets/svg/network-facebook.svg" alt="Facebook">
+            <img src="assets/svg/network-instagram.svg" alt="Instagram">
+            <img src="assets/svg/network-twitter.svg" alt="Twitter">
+          </div>
+
+        </div>
+
+        </div>
       <div class="logo_footer">
         <img src="assets/svg/fenom-footer.svg" alt="Logo Fenom">
       </div>
