@@ -23,6 +23,9 @@ h4 {
   color: $color_inactive;
   font-size: .7em;
 }
+.input-group-text {
+  cursor: pointer;
+}
 .menu_mobile {
   position: absolute;
   top: 3em;
