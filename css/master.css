@@ -7,13 +7,17 @@ a {
   color: black;
 }
 
-h1, h2, h3 {
+h1, h2, h3, h4 {
   font-family: 'Roboto Condensed', sans-serif;
   font-weight: bold;
 }
 
 h2 {
   text-transform: uppercase;
+}
+
+h4 {
+  font-size: 1em;
 }
 
 .ref {
@@ -102,6 +106,12 @@ h2 {
   }
 }
 
+.btn-dark:hover {
+  color: #000;
+  background-color: #fff;
+  border-color: #1d2124;
+}
+
 .nbCart {
   position: absolute;
   top: -.3em;
@@ -122,6 +132,12 @@ h2 {
     flex-direction: row;
     justify-content: space-around;
   }
+}
+
+.pics_of_this_article {
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 435px;
 }
 
 .pics_of_this_article img {
@@ -270,6 +286,16 @@ h2 {
 
 .shoe_brand img, .logo_footer img {
   width: 100px;
+}
+
+.other_articles h2 {
+  margin: 0 2em;
+}
+
+@media (max-width: 800px) {
+  .other_articles {
+    display: none;
+  }
 }
 
 footer {
