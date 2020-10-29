@@ -21,6 +21,20 @@ h2 {
   font-size: .7em;
 }
 
+.menu_mobile {
+  position: absolute;
+  top: 3em;
+  bottom: 70%;
+  left: 0;
+  right: 0;
+  z-index: 7;
+  background-color: #f5f5f5;
+}
+
+.menu_mobile li {
+  list-style: none;
+}
+
 @media (min-width: 800px) {
   .header_mobile {
     display: none;
@@ -86,6 +100,20 @@ h2 {
   .cart_box p, .menu_desktop p {
     margin-top: 1.2em;
   }
+}
+
+.nbCart {
+  position: absolute;
+  top: -.3em;
+  left: 5.9em;
+  width: 20px;
+  height: 20px;
+  font-size: .8em;
+  font-weight: bold;
+  text-align: center;
+  border-radius: 50%;
+  color: white;
+  background-color: black;
 }
 
 @media (min-width: 800px) {
@@ -337,24 +365,21 @@ footer, .menu_footer li {
   max-height: 2em;
 }
 
-.overlay {
-  z-index: 2;
-  background-color: rgba(0, 0, 0, 0.5);
-  position: fixed;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
+.loadingMenu-enter-active {
+  animation: loadingMenu 400ms;
 }
 
-.modal_block {
-  z-index: 5;
-  background-color: blue;
-  position: fixed;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
+.loadingMenu-leave-active {
+  animation: loadingMenu 400ms reverse;
+}
+
+@keyframes loadingMenu {
+  0% {
+    transform: translateY(-100%);
+  }
+  100% {
+    transform: translateY(0);
+  }
 }
 
 /*# sourceMappingURL=master.css.map */

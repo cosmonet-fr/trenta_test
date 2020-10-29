@@ -12,11 +12,11 @@
   </head>
   <body>
     <div id="app">
-      
       <header class="container-fluid" >
         <div class="header_mobile row">
           <div id="btn_menu" class="btn_menu col">
-            <img src="assets/svg/interface-burger.svg" alt="Ouvrire le menu">
+            <img @click="menuGsm = ! menuGsm" v-if="!menuGsm" src="assets/svg/interface-burger.svg" alt="Ouvrire le menu">
+            <img @click="menuGsm = ! menuGsm" v-if="menuGsm" src="assets/svg/nav-arrow-up.svg" alt="Ouvrire le menu">
           </div>
 
           <div class="logo col">
@@ -27,6 +27,9 @@
             <div class="">
               <img @click="modal = !modal" src="assets/svg/interface-search.svg" alt="">
               <img src="assets/svg/interface-shopping-cart.svg" alt="">
+              <div v-if="cart > 0" class="nbCart">
+                <p>{{ cart }}</p>
+              </div>
             </div>
           </div>
         </div>
@@ -51,10 +54,26 @@
           <div class="cart_box">
             <img src="assets/svg/interface-user.svg" alt="">
             <img src="assets/svg/interface-shopping-cart.svg" alt="">
-            <p>PANIER ( {{ cart }} )</p>
+            <p>PANIER <span v-if="cart > 0">( {{ cart }} )</span></p>
           </div>
         </div>
       </header>
+      <transition name="loadingMenu">
+        <div v-if="menuGsm" class="menu_mobile">
+          <nav>
+            <ul class="list-group list-group-flush">
+              <li class="list-group-item"><a href="#">Nouveautés</a></li>
+              <li class="list-group-item"><a href="#">Homme</a></li>
+              <li class="list-group-item"><a href="#">Femme</a></li>
+              <li class="list-group-item"><a href="#">Lifestore</a></li>
+              <li class="list-group-item"><a href="#">Skate</a></li>
+              <li class="list-group-item"><a href="#">Marques</a></li>
+              <li class="list-group-item"><a href="#">Outlet</a></li>
+            </ul>
+          </nav>
+
+        </div>
+      </transition>
       <div v-if="modal" class="col-md-4 offset-md-4 mt-5 border pt-3">
         <div class="input-group mb-3">
           <input type="text" class="form-control" placeholder="Rechercher un modèle" aria-label="Recipient's username">
@@ -166,12 +185,12 @@
         <h2>Vous aimerez aussi</h2>
         <div class="wrapper">
           <div class="carousel">
-            <div><img src="assets/img/img-chaussure-1.jpg/"></div>
-            <div><img src="assets/img/img-chaussure-2.jpg/"></div>
-            <div><img src="assets/img/img-chaussure-3.jpg/"></div>
-            <div><img src="assets/img/img-chaussure-4.jpg/"></div>
-            <div><img src="assets/img/img-chaussure-5.jpg/"></div>
-            <div><img src="assets/img/img-chaussure-6.jpg/"></div>
+            <div><img src="assets/img/img-chaussure-1.jpg"></div>
+            <div><img src="assets/img/img-chaussure-2.jpg"></div>
+            <div><img src="assets/img/img-chaussure-3.jpg"></div>
+            <div><img src="assets/img/img-chaussure-4.jpg"></div>
+            <div><img src="assets/img/img-chaussure-5.jpg"></div>
+            <div><img src="assets/img/img-chaussure-6.jpg"></div>
 
           </div>
         </div>
@@ -179,12 +198,12 @@
         <h2>Derniers articles consultés</h2>
         <div class="wrapper">
           <div class="carousel">
-            <div><img src="assets/img/img-chaussure-1.jpg/"></div>
-            <div><img src="assets/img/img-chaussure-2.jpg/"></div>
-            <div><img src="assets/img/img-chaussure-3.jpg/"></div>
-            <div><img src="assets/img/img-chaussure-4.jpg/"></div>
-            <div><img src="assets/img/img-chaussure-5.jpg/"></div>
-            <div><img src="assets/img/img-chaussure-6.jpg/"></div>
+            <div><img src="assets/img/img-chaussure-1.jpg"></div>
+            <div><img src="assets/img/img-chaussure-2.jpg"></div>
+            <div><img src="assets/img/img-chaussure-3.jpg"></div>
+            <div><img src="assets/img/img-chaussure-4.jpg"></div>
+            <div><img src="assets/img/img-chaussure-5.jpg"></div>
+            <div><img src="assets/img/img-chaussure-6.jpg"></div>
 
           </div>
         </div>
@@ -300,7 +319,7 @@
     <script type="text/javascript">
     $(document).ready(function(){
       $('.carousel').slick({
-        slidesToShow: 3,
+        slidesToShow: 1,
         dots:true,
         centerMode: true,
       });
@@ -314,6 +333,7 @@
                 cart: 0,
                 indPics: 0,
                 modal: false,
+                menuGsm: false,
                 size: [
                   {state: true},
                   {state: false},
